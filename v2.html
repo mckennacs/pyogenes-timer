@@ -1,0 +1,725 @@
+<html>
+
+<head>
+  <link rel="SHORTCUT ICON" href="http://www.pyogenes.com/favicon.ico">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-16">
+
+  <link rel="stylesheet" href="default.css">
+  <!-- <style type="text/css">
+    A:link {
+      color: #004444;
+      text-decoration: none;
+    }
+
+    A:visited {
+      color: #004444;
+      text-decoration: none;
+    }
+
+    A:hover {
+      color: #004444;
+      text-decoration: none;
+    }
+
+    A.more {
+      color: #004444;
+      text-decoration: none;
+    }
+
+    A.hdline {
+      color: #004444;
+    }
+
+    H2 {
+      font-family: MS Courier New;
+      font-size: 8pt;
+      font-weight: normal;
+    }
+
+    .date {
+      font-family: Arial, sans-serif;
+      font-size: 18pt;
+      font-weight: bold;
+      font-style: italic;
+      margin-left: 3pt;
+    }
+
+    .box {
+      color: #000000;
+      font-size: 9pt;
+      border-top: .5pt solid #004090;
+      border-right: .5pt solid #004090;
+      border-bottom: .5pt solid #004090;
+      border-left: .5pt solid #004090;
+      background-color: white;
+    }
+
+    .divarea {
+      padding-left: 0pt;
+      padding-right: 0pt;
+      padding-top: 0pt;
+      padding-bottom: 0pt;
+    }
+
+    .blank {
+      color: #000000;
+      font-size: 9pt;
+      border-top: 0pt;
+      border-right: 0pt;
+      border-bottom: 0pt;
+      border-left: 0pt;
+      background-color: white;
+    }
+
+    .cal {
+      color: #000000;
+      font-size: 9pt;
+      border-top: 0pt;
+      border-right: 0pt;
+      border-bottom: 0pt;
+      border-left: 0pt;
+      background-color: white;
+    }
+
+    .ships {
+      color: #000000;
+      border-top: .5pt solid blue;
+      border-right: .5pt solid blue;
+      border-bottom: .5pt solid blue;
+      border-left: .5pt solid blue;
+      background-color: white;
+    }
+
+    .timer {
+      color: #dd6633;
+      border-top: .5pt solid orange;
+      border-right: .5pt solid orange;
+      border-bottom: .5pt solid orange;
+      border-left: .5pt solid orange;
+      background-color: white;
+    }
+  </style> -->
+</head>
+
+<body bgcolor="#FFFFFF" onload="printPage()">
+  <font size="+3">FFXI Time Information</font>
+  <br>by Pyogenes
+  <br>Press F11 to fit page on a 800x600 screen
+  <br>
+  <font size="+1"><a href="http://forum.pyogenes.com/">Forum open for FFXI Timer suggestions</a></font>
+  <br>
+  <font size="-1">If you're on Sylph, give Kisana a birthday /poke!</font>
+
+  <form name="Timer" class="Controls">
+    <table class="blank" cellpadding="0" cellspacing="0" height="195">
+      <tbody>
+        <tr>
+          <td width="215" valign="top">
+            <table class="box" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td width="200" height="185">
+                    <b>
+                      <font color="#500000">General Info</font>
+                    </b>
+                    <br><b>Vana'diel Time</b>
+                    <br>
+                    <div id="vTime">
+                      <div onmouseover="javascript:dayDetails(vDay)">
+                        <font color="#AA00AA">Lightningday</font>: 1461-10-08 06:10:22
+                      </div>
+                    </div>
+                    <b>Earth Time</b>
+                    <br>
+                    <div id="eTime">Thursday, Sep 12, 124 10:10:00</div>
+                    <b>Current Moon Phase</b>
+                    <br>
+                    <div id="mPhase">
+                      <div onmouseover="javascript:getMoonDetails()">Waning Gibbous (93%)</div> Next phase (Last
+                      Quarter): 13:11:35<br>Next New Moon: 1:09:21:11
+                    </div>
+                    <b>Conquest - Next Tally</b>
+                    <br>
+                    <div id="conquest">73 Vana´diel Days <br>Sep 15, 08:00:00 (2:21:49:59)</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          <td width="345" valign="TOP">
+            <table class="box" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td width="330" height="185" valign="TOP">
+                    <b>
+                      <font color="#500000">Crafting Guild Info</font>
+                    </b>
+                    <div id="Guilds">
+                      <table class="blank" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <th align="left" width="85">Guild</th>
+                            <th width="55"></th>
+                            <th width="50"></th>
+                            <th align="left" width="140">Status</th>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(1)">Alchemy</a></td>
+                            <td>Opens in:</td>
+                            <td>04:23</td>
+                            <td>
+                              <font color="#DD0000">Closed.</font> Open tomorrow.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(2)">Blacksmith</a></td>
+                            <td>Opens in:</td>
+                            <td>04:23</td>
+                            <td>
+                              <font color="#DD0000">Closed.</font> Open tomorrow.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(3)">Boneworking</a></td>
+                            <td>Opens in:</td>
+                            <td>04:23</td>
+                            <td>
+                              <font color="#DD0000">Closed.</font> Open tomorrow.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(4)">Goldsmith</a></td>
+                            <td>Opens in:</td>
+                            <td>04:23</td>
+                            <td>
+                              <font color="#DD0000">Closed.</font> Open tomorrow.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(5)">Cloth</a></td>
+                            <td>Closes in:</td>
+                            <td>35:35</td>
+                            <td>
+                              <font color="#008822">Open</font> for business
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(6)">Woodworking</a></td>
+                            <td>Closes in:</td>
+                            <td>35:35</td>
+                            <td>
+                              <font color="#008822">Open</font> for business
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(7)">Leather</a></td>
+                            <td>Closes in:</td>
+                            <td>28:23</td>
+                            <td>
+                              <font color="#008822">Open</font> for business
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(8)">Fishing</a></td>
+                            <td>Opens in:</td>
+                            <td>49:59</td>
+                            <td>
+                              <font color="#DD0000">Closed</font> for Holiday
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><a href="#" onmousedown="javascript:guildDetail(9)">Cooking</a></td>
+                            <td>Closes in:</td>
+                            <td>33:11</td>
+                            <td>
+                              <font color="#008822">Open</font> for business
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+          <td width="227" valign="TOP">
+            <table class="box" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td width="240" height="185" valign="TOP">
+                    <b><a href="#" onmousedown="javascript:clearDetails()">
+                        <font color="#500000">Details</font>
+                      </a></b>
+                    <div id="Details"> &nbsp; </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="blank" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td valign="TOP">
+            <table class="blank" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td valign="top" class="box" width="380">
+                    <table cellpadding="0" class="blank" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="150">
+                            <b>
+                              <font color="#500000">Selbina-Mhaura Ferry</font>
+                            </b>
+                          </td>
+                          <td width="220" align="right">
+                            Display lines:
+                            <select name="FerryCount">
+                              <option value="0">0
+                              </option>
+                              <option value="1">1
+                              </option>
+                              <option value="2">2
+                              </option>
+                              <option value="3" selected="selected">3
+                              </option>
+                              <option value="4">4
+                              </option>
+                              <option value="5">5
+                              </option>
+                              <option value="10">10
+                              </option>
+                              <option value="25">25
+                              </option>
+                              <option value="50">50
+                              </option>
+                              <option value="100">100
+                              </option>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div id="ferry">
+                      <table class="blank" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <th width="80" align="left">Arrives</th>
+                            <th width="45"></th>
+                            <th align="left" width="80">ETA</th>
+                            <th width="80" align="left">Departs</th>
+                            <th width="45"></th>
+                            <th align="left" width="45">ETD</th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>06:30</td>
+                            <td>00:47</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>08:00</td>
+                            <td align="left">04:23</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>14:30</td>
+                            <td>19:59</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>16:00</td>
+                            <td align="left">23:35</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>22:30</td>
+                            <td>39:11</td>
+                            <td>
+                              <font color="#AAAAAA">Lightsday</font>
+                            </td>
+                            <td>00:00</td>
+                            <td align="left">42:47</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+                <tr>
+                  <td valign="TOP" class="box" width="380">
+                    <table class="blank" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="150">
+                            <b>
+                              <font color="#500000">Moon Calendar</font>
+                            </b>
+                          </td>
+                          <td width="220" align="right">
+                            Display lines:
+                            <select name="Moon">
+                              <option value="0">0
+                              </option>
+                              <option value="1">1
+                              </option>
+                              <option value="2">2
+                              </option>
+                              <option value="3" selected="selected">3
+                              </option>
+                              <option value="4">4
+                              </option>
+                              <option value="5">5
+                              </option>
+                              <option value="10">10
+                              </option>
+                              <option value="15">15
+                              </option>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div id="mCalendar" class="divarea">
+                      <table class="blank" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <th width="95" align="left">New Moon Start</th>
+                            <th width="105" align="left">New Moon End</th>
+                            <th width="95" align="left">Full Moon Start</th>
+                            <th width="78" align="left">Full Moon End</th>
+                          </tr>
+                          <tr>
+                            <td>Sep 10, 10:52:48</td>
+                            <td>Sep 10, 17:36:00</td>
+                            <td>Sep 12, 03:12:00</td>
+                            <td>Sep 12, 09:55:12</td>
+                          </tr>
+                          <tr>
+                            <td>Sep 13, 19:31:12</td>
+                            <td>Sep 14, 02:14:24</td>
+                            <td>Sep 15, 11:50:24</td>
+                            <td>Sep 15, 18:33:36</td>
+                          </tr>
+                          <tr>
+                            <td>Sep 17, 04:09:36</td>
+                            <td>Sep 17, 10:52:48</td>
+                            <td>Sep 18, 20:28:48</td>
+                            <td>Sep 19, 03:12:00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+                <tr>
+                  <td valign="TOP" class="box" width="380">
+                    <table class="blank" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="100">
+                            <b>
+                              <font color="#500000">RSE Calendar</font>
+                            </b>
+                          </td>
+                          <td width="270" align="right">
+                            Race:
+                            <select name="RSErace" class="box">
+                              <option value="0">Male Hume
+                              </option>
+                              <option value="1">Female Hume
+                              </option>
+                              <option value="2">Male Elvaan
+                              </option>
+                              <option value="3">Female Elvaan
+                              </option>
+                              <option value="4">Male Tarutaru
+                              </option>
+                              <option value="5">Female Tarutaru
+                              </option>
+                              <option value="6">Mithra
+                              </option>
+                              <option value="7">Galka
+                              </option>
+                              <option value="8" selected="selected">All
+                              </option>
+                            </select>
+                            Display lines:
+                            <select name="RSE" class="box">
+                              <option value="0">0
+                              </option>
+                              <option value="1">1
+                              </option>
+                              <option value="2">2
+                              </option>
+                              <option value="3" selected="selected">3
+                              </option>
+                              <option value="4">4
+                              </option>
+                              <option value="5">5
+                              </option>
+                              <option value="6">6
+                              </option>
+                              <option value="7">7
+                              </option>
+                              <option value="8">8
+                              </option>
+                              <option value="16">16
+                              </option>
+                              <option value="24">24
+                              </option>
+                              <option value="32">32
+                              </option>
+                              <option value="40">40
+                              </option>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div id="rCal">
+                      <table class="blank" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <th width="120" align="LEFT">Date &amp; Time</th>
+                            <th width="90" align="LEFT">Race</th>
+                            <th width="90" align="LEFT">Location</th>
+                          </tr>
+                          <tr>
+                            <td>Sep 12, 05:07:12</td>
+                            <td>F. TaruTaru</td>
+                            <td><a href="#" onmousedown="javascript:getRSEDetails(0)">Gusgen Mines</a></td>
+                          </tr>
+                          <tr>
+                            <td>Sep 12, 12:48:00</td>
+                            <td>Mithra</td>
+                            <td><a href="#" onmousedown="javascript:getRSEDetails(1)">Shakrami Maze</a></td>
+                          </tr>
+                          <tr>
+                            <td>Sep 12, 20:28:48</td>
+                            <td>Galka</td>
+                            <td><a href="#" onmousedown="javascript:getRSEDetails(2)">Ordelle Caves</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td width="10"></td>
+          <td valign="TOP">
+            <table class="blank" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td valign="TOP" class="box" width="380" height="185">
+                    <div id="Airship">
+                      <table class="blank" width="400" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <th align="LEFT">Airship Route</th>
+                            <th align="LEFT">Departure Day</th>
+                            <th align="LEFT">Arrival</th>
+                            <th align="LEFT">Departure</th>
+                          </tr>
+                          <tr>
+                            <td>Jeuno To Bastok</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>07:11</td>
+                            <td>09:35</td>
+                          </tr>
+                          <tr>
+                            <td>Jeuno To Kazham</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>10:35</td>
+                            <td>12:59</td>
+                          </tr>
+                          <tr>
+                            <td>Jeuno To San d'Oria</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>00:00</td>
+                            <td>02:23</td>
+                          </tr>
+                          <tr>
+                            <td>Jeuno To Windurst</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>03:35</td>
+                            <td>05:59</td>
+                          </tr>
+                          <tr>
+                            <td>Bastok To Jeuno</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>00:00</td>
+                            <td>02:23</td>
+                          </tr>
+                          <tr>
+                            <td>Kazham To Jeuno</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>03:35</td>
+                            <td>05:59</td>
+                          </tr>
+                          <tr>
+                            <td>San d'Oria To Jeuno</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>07:11</td>
+                            <td>09:35</td>
+                          </tr>
+                          <tr>
+                            <td>Windurst To Jeuno</td>
+                            <td>
+                              <font color="#AA00AA">Lightningday</font>
+                            </td>
+                            <td>10:59</td>
+                            <td>13:23</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+                <tr>
+                  <td valign="TOP" class="box" width="380">
+                    <table class="blank" cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="150">
+                            <b>
+                              <font color="#500000">Day Calendar</font>
+                            </b>
+                          </td>
+                          <td width="220" align="right">
+                            Display lines:
+                            <select name="DayCount">
+                              <option value="0">0
+                              </option>
+                              <option value="1">1
+                              </option>
+                              <option value="2">2
+                              </option>
+                              <option value="3" selected="selected">3
+                              </option>
+                              <option value="4">4
+                              </option>
+                              <option value="5">5
+                              </option>
+                              <option value="10">10
+                              </option>
+                              <option value="25">25
+                              </option>
+                              <option value="50">50
+                              </option>
+                              <option value="100">100
+                              </option>
+                            </select>
+                            <select name="Day">
+                              <option value="0">Firesday
+                              </option>
+                              <option value="1">Earthsday
+                              </option>
+                              <option value="2">Watersday
+                              </option>
+                              <option value="3">Windsday
+                              </option>
+                              <option value="4">Iceday
+                              </option>
+                              <option value="5">Lightningday
+                              </option>
+                              <option value="6">Lightsday
+                              </option>
+                              <option value="7">Darksday
+                              </option>
+                              <option value="8" selected="selected">All
+                              </option>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div id="days">
+                      <table class="blank" cellspacing="0" cellpadding="0">
+                        <tbody>
+                          <tr>
+                            <th width="75" align="left">Day</th>
+                            <th width="100" align="left">Begins</th>
+                            <th align="left" width="100">Ends</th>
+                            <th align="left" width="120">Moon Phase</th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <font color="#DD000">Firesday</font>
+                            </td>
+                            <td>Sep 11, 21:26:24</td>
+                            <td>Sep 11, 22:24:00</td>
+                            <td>Waxing Gibbous (76%)</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <font color="#AAAA00">Earthsday</font>
+                            </td>
+                            <td>Sep 11, 22:24:00</td>
+                            <td>Sep 11, 23:21:36</td>
+                            <td>Waxing Gibbous (79%)</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <font color="#0000DD">Watersday</font>
+                            </td>
+                            <td>Sep 11, 23:21:36</td>
+                            <td>Sep 12, 00:19:12</td>
+                            <td>Waxing Gibbous (81%)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+  <script src="v2_files/timer4.js" language="JavaScript"></script>
+</body>
+
+</html>
