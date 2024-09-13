@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #252323;
+  font-family: "Courier New", Courier, monospace;
+  color: #fff;
+  margin: 1rem;
+}
+
+main {
+  margin: auto;
+  padding: 5%;
+}
+
+.info-block {
+  border: 1px solid #fff;
+  padding: 5%;
+}
+
+.timers-grid {
+  /* width: 100%; */
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  /* https://css-tricks.com/books/greatest-css-tricks/flexible-grids/ */
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 3fr));
+  gap: 1rem;
+  /* place-items: center; */
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+table {
+  text-align: left;
+}
